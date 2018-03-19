@@ -11,17 +11,17 @@ CREATE TABLE room (
 );
 
 CREATE TABLE customers (
-  id SERIAL8,
+  id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
   wallet INT,
   room_id INT8 REFERENCES room(id)
--- fav_song VARCHAR8 REFERENCE songs(id)
 );
 --
 CREATE TABLE songs (
-  id SERIAL8,
+  id SERIAL8 PRIMARY KEY,
   name VARCHAR(255),
-  artist VARCHAR(255)
+  artist VARCHAR(255),
+  fav_id INT8 REFERENCES customers(id)
 );
 
 
@@ -34,11 +34,25 @@ INSERT INTO customers (name, wallet, room_id) VALUES ('Charles Manson', 100, 1);
 INSERT INTO customers (name, wallet, room_id) VALUES ('Benito Mussilini', 50, 2);
 INSERT INTO customers (name, wallet, room_id) VALUES ('Jack the Ripper', 10, 4);
 
-INSERT INTO songs (name, artist) VALUES ('Smells like Teen Spirit', 'Nirvana');
-INSERT INTO songs (name, artist) VALUES ('Supermodel of the World', 'Rupaul');
-INSERT INTO songs (name, artist) VALUES ('Okay', 'Holy Ghost');
+INSERT INTO songs (name, artist, fav_id) VALUES ('Smells like Teen Spirit', 'Nirvana', 1);
+INSERT INTO songs (name, artist, fav_id) VALUES ('Supermodel of the World', 'Rupaul', 2);
+INSERT INTO songs (name, artist, fav_id) VALUES ('Okay', 'Holy Ghost', 3);
 
+UPDATE room
+  SET room_name = 'ocean'
+  WHERE room_name = 'space';
+
+UPDATE customers
+  SET wallet = 60
+  WHERE name = 'Benito Mussilini';
+
+UPDATE songs
+  SET name = 'Sissy that walk'
+  WHERE name = 'Supermodel of the World';
 
 SELECT * FROM room;
 SELECT * FROM customers;
 SELECT * FROM songs;
+
+SELECT name FROM customers;
+SELECT * FROM customers WHERE room_id = 1;
