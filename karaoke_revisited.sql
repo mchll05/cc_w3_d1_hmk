@@ -30,9 +30,9 @@ INSERT INTO room (room_name, entry_fee, capacity) VALUES ('space', 5, 5);
 INSERT INTO room (room_name, entry_fee, capacity) VALUES ('forest', 5, 5);
 INSERT INTO room (room_name, entry_fee, capacity) VALUES ('beach', 10, 8);
 
-INSERT INTO customers (name, wallet, room_id) VALUES ('Charles Manson', 100, 1);
-INSERT INTO customers (name, wallet, room_id) VALUES ('Benito Mussilini', 50, 2);
-INSERT INTO customers (name, wallet, room_id) VALUES ('Jack the Ripper', 10, 4);
+INSERT INTO customers (name, wallet, room_id) VALUES ('Charlie Chaplin', 100, 1);
+INSERT INTO customers (name, wallet, room_id) VALUES ('Buster Keaton', 50, 2);
+INSERT INTO customers (name, wallet, room_id) VALUES ('Dougles Fairbanks', 10, 4);
 
 INSERT INTO songs (name, artist, fav_id) VALUES ('Smells like Teen Spirit', 'Nirvana', 1);
 INSERT INTO songs (name, artist, fav_id) VALUES ('Supermodel of the World', 'Rupaul', 2);
@@ -44,7 +44,7 @@ UPDATE room
 
 UPDATE customers
   SET wallet = 60
-  WHERE name = 'Benito Mussilini';
+  WHERE name = 'Buster Keaton';
 
 UPDATE songs
   SET name = 'Sissy that walk'
